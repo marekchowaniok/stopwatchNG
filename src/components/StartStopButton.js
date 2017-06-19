@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react'
 import { StyleSheet, Text, View, TouchableHighlight} from 'react-native'
 
-const StartStopButton = (props) => {
+const StartStopButton = ({onStartStopPress, name}) => {
   return (
     <TouchableHighlight
       underlayColor="grey"
-      onPress={onPress}
+      onPress={onStartStopPress}
     >
-      <Text>Start/Stop button</Text>
+      <Text>{name}</Text>
     </TouchableHighlight>
   )
 }
