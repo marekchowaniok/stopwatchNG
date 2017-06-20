@@ -13,10 +13,6 @@ const StartStopButton = ({onStartStopPress, name}) => {
   )
 }
 
-const onPress = () => {
-  console.log('pressed start/stop button')
-}
-
 StartStopButton.propTypes = {}
 StartStopButton.defaultProps = {}
 

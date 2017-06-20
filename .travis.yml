@@ -1,0 +1,23 @@
+anguage: node_js
+node_js:
+ -  "7"
+
+dist: trusty
+sudo: required
+
+addons:
+  sonarqube:
+    organization: "chowanioksource"
+    branches :
+      - master
+
+jdk:
+  - oraclejdk8
+
+script:
+  - sonar-scanner
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
+    - node_modules
