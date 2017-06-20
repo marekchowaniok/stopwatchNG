@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
 
-const LapButton = (props) => {
+const LapButton = ({onLapButtonPress}) => {
   return (
     <TouchableHighlight
-      onPress={onPress}
+      onPress={onLapButtonPress}
       style={styles.button}
     >
       <Text>Lap button</Text>
