@@ -2,12 +2,14 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import StartStopButton from './StartStopButton'
 import LapButton from './LapButton'
+import formatTime from 'minutes-seconds-milliseconds'
 
 export default class StopWatch extends React.Component {
 
   state = {
     timeElapsed: null,
-    startStopButtonName: 'Start'
+    startStopButtonName: 'Start',
+    running: false
   }
 
   render () {
@@ -15,10 +17,10 @@ export default class StopWatch extends React.Component {
       <View style={styles.container}>
         <View style={[styles.header, border('yellow')]}>
           <View style={[styles.counter, border('red')]}>
-            <Text>{this.state.timeElapsed}</Text>
+            <Text style={styles.timer} >{formatTime(this.state.timeElapsed)}</Text>
           </View>
           <View style={[styles.buttons, border('green')]}>
-            <StartStopButton onStartStopPress={this.startTimePressed} name={this.state.startStopButtonName} />
+            <StartStopButton onStartStopPress={this.startTimePressed} name={this.state.startStopButtonName}/>
             <LapButton/>
           </View>
         </View>
@@ -31,13 +33,22 @@ export default class StopWatch extends React.Component {
   }
 
   startTimePressed = () => {
-    console.log('StopWatch start/stop but pressed')
     const startTime = new Date()
 
-    setInterval(() => {
+    if (this.state.running) {
+      clearInterval(this.interval)
+
       this.setState({
-        startStopButtonName: this.state.startStopButtonName === 'Start' ? 'Stop' : 'Stop',
-        timeElapsed: new Date() - startTime
+        startStopButtonName: 'Stop',
+        running: false
+      })
+      return
+    }
+
+    this.interval = setInterval(() => {
+      this.setState({
+        timeElapsed: new Date() - startTime,
+        running: true
       })
     }, 30)
 
@@ -66,7 +77,10 @@ const styles = StyleSheet.create({
   counter: {
     flex: 5,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  timer: {
+    fontSize: 50
   },
   buttons: {
     flex: 3,
