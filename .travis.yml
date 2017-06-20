@@ -1,23 +1,21 @@
 anguage: node_js
 node_js:
- -  "7"
-
+- '7'
 dist: trusty
 sudo: required
-
 addons:
   sonarqube:
-    organization: "chowanioksource"
-    branches :
-      - master
-
+    organization: chowanioksource
+    branches:
+    - master
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 script:
-  - sonar-scanner
-
+- sonar-scanner
 cache:
   directories:
-    - '$HOME/.sonar/cache'
-    - node_modules
+  - $HOME/.sonar/cache
+  - node_modules
+env:
+  global:
+    secure: ei+kA4kytXNyisd4iEBilmnh66do8cZdnCbgYw7kfkfEL3ATrAZqxpklr/iTfJyZ33PLuv3tpVmdHWghVbCVo/3pjkoVr94ICDQrWw/dBFLXLfKjTAITwYYeK4bn3uyf5RwAai09EP4UwC9e8o7JM3NVTBciu92eYutQgHEqx34h7s76rvCZD1iy/U9RNKFK39q4U73A9yzmPlhA/xjXuU39rrsUYm1r47EYA7Ap3gAp5tb1+yYYUTBaGKtrSmUSbiTjtobyAoXAfGQN4Sz0ArGtV+dmG/Pf4Qj0UyCwFX8N01TwARZCnSyTP+KogrJDCJO7pwgKRI4gE0ZdokTu9jayAlgYXHSgVM00q/GnSWH4thkJwOfv5uKsqwvSKEbsrGBNkwlnzb4tuuq1envLjP5ukwibk4S7nJLPjwx8uXtl+Hl3IPv4WYOUWw8T5QXFR7XASAFnb4OEw8y80RTWYeC2TMRiVopwDpwsuIjYrqupzk2zC85YO8yDCRFPoQ07+xOGy32AeuovYWNIR6hA88Ckd/eeQyh+Qoub5iAU1w0A2w3/Z+gJF7xPilCJ9kZIO9ayqmJdYDCjI2VTYCmfOG1aCYm//UO3YHvFUElhKj2AxN078RllVs5othPjQc9twwMsm1mG4Gc9jRfAoTM0uvAV5Ec/OwBqzQY1ra7pvUQ=
