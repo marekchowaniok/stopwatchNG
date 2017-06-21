@@ -33,7 +33,7 @@ describe('Stopwatch buttons', () => {
 
   it('Stopwatch StartStop button click', () => {
     const wrapper = shallow(<StopWatch />)
-    console.log(wrapper.state())
+    // console.log(wrapper.state())
     expect(wrapper.find(StartStopButton)).toHaveLength(1)
     expect(wrapper.state('startStopButtonName')).toBe('Start')
     expect(wrapper.state('startTime')).toBeNull()
@@ -42,22 +42,11 @@ describe('Stopwatch buttons', () => {
     expect(wrapper.state('startStopButtonName')).toBe('Stop')
     expect(wrapper.state('startTime')).not.toBeNull()
     expect(wrapper.state('running')).toBe(true)
-    console.log(wrapper.state())
+    // console.log(wrapper.state())
     wrapper.find(StartStopButton).simulate('startStopPress')
     expect(wrapper.state('startStopButtonName')).toBe('Start')
     expect(wrapper.state('running')).toBe(false)
-    console.log(wrapper.state())
+    // console.log(wrapper.state())
   })
 
 })
-
-// it('CheckboxWithLabel changes the text after click', () => {
-//   // Render a checkbox with label in the document
-//   const checkbox = shallow(<CheckboxWithLabel labelOn="On" labelOff="Off" />);
-//
-//   expect(checkbox.text()).toEqual('Off');
-//
-//   checkbox.find('input').simulate('change');
-//
-//   expect(checkbox.text()).toEqual('On');
-// });
