@@ -3,6 +3,12 @@ import { View, StyleSheet, Text } from 'react-native'
 import formatTime from 'minutes-seconds-milliseconds'
 import PropTypes from 'prop-types'
 
+const styles = StyleSheet.create({
+  item: {
+    fontSize: 30
+  }
+})
+
 const LapInfo = ({lap}) => {
   return (
     <View>
@@ -11,11 +17,6 @@ const LapInfo = ({lap}) => {
   )
 }
 
-const styles = StyleSheet.create({
-  item: {
-    fontSize: 30
-  }
-})
 
 LapInfo.propTypes = {
   lap: PropTypes.number

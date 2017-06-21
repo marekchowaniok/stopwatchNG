@@ -5,6 +5,42 @@ import LapButton from './LapButton'
 import LapInfo from './LapInfo'
 import formatTime from 'minutes-seconds-milliseconds'
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'stretch'
+  },
+  header: {
+    flex: 1
+  },
+  counter: {
+    flex: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  timer: {
+    fontSize: 50
+  },
+  buttons: {
+    flex: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  },
+  footer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  }
+})
+
+border = (color) => {
+  return {
+    borderColor: color,
+    borderWidth: 4
+  }
+}
+
 export default class StopWatch extends React.Component {
 
   state = {
@@ -37,7 +73,6 @@ export default class StopWatch extends React.Component {
   }
 
   startTimePressed = () => {
-    const startTime = new Date()
 
     // stop timer
     if (this.state.running) {
@@ -45,8 +80,7 @@ export default class StopWatch extends React.Component {
 
       this.setState({
         startStopButtonName: 'Start',
-        running: false,
-
+        running: false
       })
       return
     }
@@ -62,7 +96,6 @@ export default class StopWatch extends React.Component {
     this.interval = setInterval(() => {
       this.setState({
         timeElapsed: new Date() - this.state.startTime
-
       })
     }, 30)
 
@@ -77,9 +110,7 @@ export default class StopWatch extends React.Component {
   }
 
   lapsSection = () => {
-    return this.state.laps.map((time, i) => {
-      return <LapInfo key={i} lap={time}/>
-    })
+    return this.state.laps.map((time, i) =>  <LapInfo key={i} lap={time}/> )
   }
 
 }
@@ -87,39 +118,5 @@ export default class StopWatch extends React.Component {
 StopWatch.propTypes = {}
 StopWatch.defaultProps = {}
 
-const border = (color) => {
-  return {
-    borderColor: color,
-    borderWidth: 4
-  }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'stretch',
-  },
-  header: {
-    flex: 1,
-  },
-  counter: {
-    flex: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  timer: {
-    fontSize: 50
-  },
-  buttons: {
-    flex: 3,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around'
-  },
-  footer: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center'
-  }
-})
 
