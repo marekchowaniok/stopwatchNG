@@ -49,4 +49,21 @@ describe('Stopwatch buttons', () => {
     // console.log(wrapper.state())
   })
 
+  it('Stopwatch styles testing', () => {
+    const wrapper = shallow(<StopWatch />)
+
+    expect(wrapper.props().style.flex).toBe(1)
+    expect(wrapper.props().style.alignItems).toBe('stretch')
+    expect(wrapper.find('View').at(0).props().style).toEqual({ flex: 1, alignItems: 'stretch' })
+    expect(wrapper.find('View').at(1).props().style).toEqual([ { flex: 1 }, { borderColor: 'white', borderWidth: 4 } ])
+    expect(wrapper.find('View').at(2).props().style).toEqual([{"alignItems": "center", "flex": 5, "justifyContent": "center"}, {"borderColor": "white", "borderWidth": 4}])
+    expect(wrapper.find('View').at(3).props().style).toEqual([ { flex: 3,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-around' },
+      { borderColor: 'white', borderWidth: 4 } ])
+    expect(wrapper.find('View').at(4).props().style).toEqual([ { flex: 1, justifyContent: 'flex-start', alignItems: 'center' },
+      { borderColor: 'white', borderWidth: 4 } ])
+  })
+
 })
