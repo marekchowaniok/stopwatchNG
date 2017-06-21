@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import StartStopButton from './StartStopButton'
 import LapButton from './LapButton'
+import LapInfo from './LapInfo'
 import formatTime from 'minutes-seconds-milliseconds'
 
 export default class StopWatch extends React.Component {
@@ -23,11 +24,12 @@ export default class StopWatch extends React.Component {
           </View>
           <View style={[styles.buttons, border('white')]}>
             <StartStopButton onStartStopPress={this.startTimePressed} name={this.state.startStopButtonName}/>
-            <LapButton onLapButtonPress={this.lapButtonPressed} />
+            <LapButton onLapButtonPress={this.lapButtonPressed}/>
           </View>
         </View>
-        <View style={[styles.footer, border('blue')]}>
-          <Text>Lap info sss</Text>
+
+        <View style={[styles.footer, border('white')]}>
+          {this.lapsSection()}
         </View>
       </View>
 
@@ -52,7 +54,8 @@ export default class StopWatch extends React.Component {
     // start timer
     this.setState({
       startStopButtonName: 'Stop',
-      startTime: new Date()
+      startTime: new Date(),
+      laps: []
     })
 
     this.interval = setInterval(() => {
@@ -66,8 +69,20 @@ export default class StopWatch extends React.Component {
 
   lapButtonPressed = () => {
     console.log('lap button pressed')
+    const lap = this.state.timeElapsed
+    this.setState({
+      startTime: new Date(),
+      laps: [...this.state.laps, lap]
+    })
+
+    console.log(this.state.laps)
   }
 
+  lapsSection = () => {
+    return this.state.laps.map((time, i) => {
+      return <LapInfo key={i} lap={time}/>
+    })
+  }
 
 }
 
@@ -105,6 +120,8 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   }
 })
 
