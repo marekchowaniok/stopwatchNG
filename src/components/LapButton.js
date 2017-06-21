@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
+import PropTypes from 'prop-types'
 
 const LapButton = ({onLapButtonPress}) => {
   return (
@@ -12,11 +13,9 @@ const LapButton = ({onLapButtonPress}) => {
   )
 }
 
-const onPress = () => {
-  console.log('pressed lap button')
+LapButton.propTypes = {
+  onLapButtonPress: PropTypes.func
 }
-
-LapButton.propTypes = {}
 LapButton.defaultProps = {}
 
 export default LapButton

@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import formatTime from 'minutes-seconds-milliseconds'
+import PropTypes from 'prop-types'
 
 const LapInfo = ({lap}) => {
   return (
@@ -16,7 +17,9 @@ const styles = StyleSheet.create({
   }
 })
 
-LapInfo.propTypes = {}
+LapInfo.propTypes = {
+  lap: PropTypes.number
+}
 LapInfo.defaultProps = {}
 
 export default LapInfo

@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableHighlight } from 'react-native'
+import PropTypes from 'prop-types'
 
 const StartStopButton = ({onStartStopPress, name}) => {
   return (
@@ -13,7 +14,10 @@ const StartStopButton = ({onStartStopPress, name}) => {
   )
 }
 
-StartStopButton.propTypes = {}
+StartStopButton.propTypes = {
+  onStartStopPress: PropTypes.func,
+  name: PropTypes.string
+}
 StartStopButton.defaultProps = {}
 
 export default StartStopButton

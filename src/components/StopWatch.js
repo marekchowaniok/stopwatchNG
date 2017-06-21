@@ -55,27 +55,25 @@ export default class StopWatch extends React.Component {
     this.setState({
       startStopButtonName: 'Stop',
       startTime: new Date(),
-      laps: []
+      laps: [],
+      running: true
     })
 
     this.interval = setInterval(() => {
       this.setState({
-        timeElapsed: new Date() - this.state.startTime,
-        running: true
+        timeElapsed: new Date() - this.state.startTime
+
       })
     }, 30)
 
   }
 
   lapButtonPressed = () => {
-    console.log('lap button pressed')
     const lap = this.state.timeElapsed
     this.setState({
       startTime: new Date(),
       laps: [...this.state.laps, lap]
     })
-
-    console.log(this.state.laps)
   }
 
   lapsSection = () => {
