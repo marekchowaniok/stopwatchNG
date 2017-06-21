@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   }
 })
 
-border = (color) => {
+const border = (color) => {
   return {
     borderColor: color,
     borderWidth: 4
@@ -110,7 +110,7 @@ export default class StopWatch extends React.Component {
   }
 
   lapsSection = () => {
-    return this.state.laps.map((time, i) =>  <LapInfo key={i} lap={time}/> )
+    return this.state.laps.map((time, i) => <LapInfo key={i} lap={time}/>)
   }
 
 }
