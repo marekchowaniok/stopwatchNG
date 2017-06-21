@@ -1,3 +1,11 @@
+Stopwatch written in React Native for ios and android. 
+
+using [Github](https://github.com/majecek/stopwatchNG) , travis [![Build Status](https://travis-ci.org/majecek/stopwatchNG.svg?branch=master)](https://travis-ci.org/majecek/stopwatchNG) and [sonarcloud.io](https://sonarcloud.io/dashboard?id=chowanioksource%3AstopwatchNG%3Amaster)
+
+
+
+##
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
