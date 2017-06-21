@@ -2,6 +2,8 @@ Stopwatch written in React Native for ios and android.
 
 using [Github](https://github.com/majecek/stopwatchNG) , travis [![Build Status](https://travis-ci.org/majecek/stopwatchNG.svg?branch=master)](https://travis-ci.org/majecek/stopwatchNG) and [sonarcloud.io](https://sonarcloud.io/dashboard?id=chowanioksource%3AstopwatchNG%3Amaster)
 
+little write up about this project on [majecek blog](https://majecek.wordpress.com/2017/06/21/react-testing/)
+
 
 
 ##
